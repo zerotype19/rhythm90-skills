@@ -1,11 +1,13 @@
 ---
 name: rhythm90-operating-system
-description: Explains and applies the Rhythm90 quarterly OS: Plays, Signals, Rituals, Signal Log, Quarter Board, Review & Renew. Use when the user asks how Rhythm90 works or how to run the system.
+description: Explains and applies the Rhythm90 quarterly OS (Plays, Signals, Rituals, Signal Log, Quarter Board, roles, cadence). Use when the user asks how Rhythm90 works or which skill/tool to use next.
 ---
 
 # Rhythm90 Operating System
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** Product OS overview · pairs with all other skills
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,39 +15,51 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Explains and applies the Rhythm90 quarterly OS: Plays, Signals, Rituals, Signal Log, Quarter Board, Review & Renew. Use when the user asks how Rhythm90 works or how to run the system.
+User asks about Rhythm90 practice, roles, cadence, boards, or which tool to run.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- User question about Rhythm90 practice, roles, cadence, or boards
-- Optional: current team situation
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Question / Situation | `question` | **Yes** | What they need clarified or decided. |
+| Team Context | `team_context` | No | Industry, size, current quarter pain. |
 
-- Clear answer in Rhythm90 vocabulary
-- Recommended ritual / artifact / next step
-- Pointers to the right specialized skill when a tool is better
 
-## Instructions
+## Output schema
 
-1. Teach the loop: Plan → Run → Learn → Reset every ~90 days.
-2. Roles often include Rhythm90 Lead, Strategic Lead, Executional Lead, Signal Owner.
-3. Artifacts: Quarter Board (Plays), Signal Log, Pulse Checks, R&R.
-4. If the user needs a specific artifact built, route them to the matching skill (play-builder, signal-lab, ritual-guide, etc.).
-5. Stay practical — give the next meeting agenda or board update, not theory alone.
+Produce **all** of the following sections (use these headings):
+
+- **Answer** (`answer`) — in Rhythm90 vocabulary
+- **Recommended Artifact or Ritual** (`recommended_next`)
+- **Suggested Skill** (`suggested_skill`) — which specialized skill to invoke next
+
+## How to run
+
+Loop: Plan → Run → Learn → Reset (~90 days).
+Roles: Rhythm90 Lead, Strategic Lead, Executional Lead, Signal Owner.
+Artifacts: Quarter Board (Plays), Signal Log, Pulse Checks, R&R.
+If they need something built, route to the matching skill (play-builder, signal-lab, ritual-guide, quarterly-planner, etc.).
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

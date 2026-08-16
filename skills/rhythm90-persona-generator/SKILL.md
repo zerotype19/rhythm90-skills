@@ -1,11 +1,13 @@
 ---
 name: rhythm90-persona-generator
-description: Builds a detailed audience persona from a seed description and supports live Q&A in character. Use when creating personas or interviewing a synthetic customer.
+description: Builds a detailed persona sheet from an audience seed and supports Ask Mode Q&A in character — matching Persona Generator. Use when creating personas or interviewing a synthetic customer.
 ---
 
 # Persona Generator + Ask Mode
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/persona-generator` · generate + `POST .../persona-ask` · skill key `persona_generator`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,38 +15,57 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Builds a detailed audience persona from a seed description and supports live Q&A in character. Use when creating personas or interviewing a synthetic customer.
+User wants a persona profile and/or to ask that persona questions.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Audience seed (who they are, context, job-to-be-done)
-- For Ask Mode: follow-up question to the persona
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Audience Seed | `audience_seed` | **Yes** | Hint: "e.g. urban young adults evaluating B2B SaaS for the first time" |
+| Ask Mode Question | `question` | No | Required only when running Ask Mode after a persona exists. Hint: "Ask the persona a question…" |
 
-- Persona profile (name, role, goals, barriers, motivators, media habits, voice)
-- Key wants / barriers / motivators
-- How to message them
-- Ask Mode: first-person answers staying in character
 
-## Instructions
+### Additional intake notes
+
+Mode A — Generate: require `audience_seed`. Mode B — Ask: require an existing persona sheet (from this chat or pasted) + `question`.
+
+## Output schema
+
+Produce **all** of the following sections (use these headings):
+
+- **Persona Sheet** (`persona_sheet`) — name, age, location, occupation, income, interests, demographics, behavior, mindset, needs
+- **Wants** (`wants`) — [{ category, description }]
+- **Barriers** (`barriers`) — [{ category, description }]
+- **Motivators** (`motivators`) — [{ category, description }]
+- **Ask Mode Message** (`ask_mode_message`) — how to interview them
+- **Ask Answer** (`answer`) — Ask Mode only; first person; include persona_name
+
+## How to run
 
 1. Build a vivid but non-stereotyped persona grounded in the seed.
 2. Separate wants, barriers, and motivators clearly.
-3. In Ask Mode, answer as the persona (first person), stay consistent, and flag uncertainty.
+3. Ask Mode: answer in first person as the persona; stay consistent; flag uncertainty.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

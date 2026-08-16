@@ -2,86 +2,227 @@
   {
     "name": "rhythm90-play-builder",
     "title": "Rhythm90 Play Builder",
-    "description": "Turns a rough marketing idea into a sharp, testable Rhythm90 Play (hypothesis, how to run it, signals, owner, success). Use when the user wants to define a play, hypothesis, experiment, or quarterly bet."
+    "description": "Turns a rough marketing idea into a sharp, testable Rhythm90 Play using the same required form fields as rhythm90.io (play idea, observed signal, target outcome, signals to watch, owner role). Use when defining a play, experiment, quarterly bet, or hypothesis to put on the Quarter Board.",
+    "required_fields": [
+      "play_idea",
+      "observed_signal",
+      "target_outcome",
+      "signals_to_watch",
+      "owner_role"
+    ],
+    "optional_fields": [
+      "additional_context"
+    ]
   },
   {
     "name": "rhythm90-signal-lab",
     "title": "Rhythm90 Signal Lab",
-    "description": "Interprets messy observations or data into clear Rhythm90 Signals (what it might mean, why it matters, next action). Use when the user has a surprise, friction point, performance shift, or field feedback to decode."
+    "description": "Interprets messy observations into clear Rhythm90 Signals (summary, why it matters, next action, quarterly link) using the same inputs as Signal Lab. Use when decoding surprises, friction, performance shifts, or field feedback for the Signal Log.",
+    "required_fields": [
+      "observation"
+    ],
+    "optional_fields": [
+      "context"
+    ]
   },
   {
     "name": "rhythm90-ritual-guide",
     "title": "Rhythm90 Ritual Guide",
-    "description": "Designs agendas and facilitation prompts for Kickoff, Pulse Check, or Review & Renew rituals. Use when planning or running a Rhythm90 team session."
+    "description": "Designs Kickoff, Pulse Check, or Review & Renew agendas and facilitation prompts using the same ritual form fields as rhythm90.io. Use when planning or facilitating a Rhythm90 team session.",
+    "required_fields": [
+      "ritual_type",
+      "team_type",
+      "top_challenges",
+      "focus_areas"
+    ],
+    "optional_fields": [
+      "additional_context"
+    ]
   },
   {
     "name": "rhythm90-media-mapper",
     "title": "Rhythm90 Media Mapper",
-    "description": "Builds a practical media strategy from audience, KPI, creative, budget, and learning goals (reach, channel journey, flighting, test plan, narrative). Use when planning media mix or media tests."
+    "description": "Builds a structured media strategy (reach, channel journey, flighting, sufficiency, test design, narrative) from the same multi-select Media Mapper form as rhythm90.io. Use when planning media mix, flighting, or media tests.",
+    "required_fields": [
+      "audience_type",
+      "audience_fidelity",
+      "business_goal",
+      "primary_kpi",
+      "timeframe",
+      "message_type",
+      "creative_formats",
+      "competitive_activity",
+      "budget_level",
+      "geographic_scope",
+      "test_type"
+    ],
+    "optional_fields": [
+      "blocked_channels",
+      "learning_focus"
+    ]
+  },
+  {
+    "name": "rhythm90-quarterly-planner",
+    "title": "Rhythm90 Quarterly Planner",
+    "description": "Builds a quarterly Rhythm90 plan (objective, focus areas, plays, assumptions, signals, next steps) from the same multi-step planner inputs as rhythm90.io. Use when kicking off a quarter or resetting the Quarter Board.",
+    "required_fields": [
+      "big_challenge",
+      "learning_goals",
+      "signals_to_watch"
+    ],
+    "optional_fields": [
+      "business_context",
+      "known_plays",
+      "blockers",
+      "roles",
+      "carryover_learnings",
+      "cross_functional_needs"
+    ]
   },
   {
     "name": "rhythm90-plain-english-translator",
     "title": "Plain-English Translator",
-    "description": "Rewrites marketing copy into clear human language with a side-by-side jargon table and glossary. Use when copy is corporate, vague, or jargon-heavy."
+    "description": "Rewrites marketing copy into clear human language with a side-by-side jargon table and glossary — same input/output as the Plain-English Translator mini-tool. Use when copy is corporate, vague, or jargon-heavy.",
+    "required_fields": [
+      "original_text"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-get-to-by",
     "title": "Get/To/By Generator",
-    "description": "Crafts sharp Get/To/By strategy statements from audience, insight, and brand role. Use when defining strategy statements or creative briefs."
+    "description": "Crafts Get/To/By strategy statements from audience, insight, and brand role — matching the Get/To/By Generator form. Use when writing strategy statements or creative briefs.",
+    "required_fields": [
+      "audience_description",
+      "behavioral_or_emotional_insight",
+      "brand_product_role"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-creative-tension-finder",
     "title": "Creative-Tension Finder",
-    "description": "Generates creative tensions from a problem or strategy summary to spark campaign ideas. Use when ideating platforms, campaigns, or provocative territories."
+    "description": "Generates creative tensions from a problem/strategy summary with optional platform names — same contract as Creative-Tension Finder. Use when ideating campaign territories.",
+    "required_fields": [
+      "problem_or_strategy_summary"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-persona-generator",
     "title": "Persona Generator + Ask Mode",
-    "description": "Builds a detailed audience persona from a seed description and supports live Q&A in character. Use when creating personas or interviewing a synthetic customer."
+    "description": "Builds a detailed persona sheet from an audience seed and supports Ask Mode Q&A in character — matching Persona Generator. Use when creating personas or interviewing a synthetic customer.",
+    "required_fields": [
+      "audience_seed"
+    ],
+    "optional_fields": [
+      "question"
+    ]
   },
   {
     "name": "rhythm90-journey-builder",
     "title": "Journey Builder",
-    "description": "Maps a step-by-step customer journey with jobs, emotions, friction, and action tips. Use when designing journeys, funnels, or experience maps."
+    "description": "Maps a customer journey (stages, customer action, brand action, stuck stage) from product, objective, and optional barrier — same as Journey Builder. Use for journeys, funnels, or experience maps.",
+    "required_fields": [
+      "product_or_service",
+      "primary_objective"
+    ],
+    "optional_fields": [
+      "key_barrier"
+    ]
   },
   {
     "name": "rhythm90-test-learn-scale",
     "title": "Test-Learn-Scale Roadmap",
-    "description": "Designs an experimentation plan with hypotheses, KPIs, and scale criteria. Use when planning tests, growth experiments, or learning roadmaps."
+    "description": "Designs an experimentation roadmap with hypotheses, test design table, learning application, and risk tips — matching Test-Learn-Scale. Use for growth experiments and learning plans.",
+    "required_fields": [
+      "campaign_or_product_context"
+    ],
+    "optional_fields": [
+      "resources_or_constraints"
+    ]
   },
   {
     "name": "rhythm90-agile-sprint-planner",
     "title": "Agile Sprint / War-Room Planner",
-    "description": "Outlines an agile sprint or war-room plan for a marketing challenge. Use when planning a sprint, war room, or time-boxed marketing push."
+    "description": "Outlines a marketing sprint/war-room plan (objective, roster, cadence, rituals, deliverables, DoD) from challenge, time horizon, and team roles — matching Agile Sprint Planner.",
+    "required_fields": [
+      "challenge_statement",
+      "time_horizon",
+      "team_size_roles"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-connected-media-matrix",
     "title": "Connected-Media Moment Matrix",
-    "description": "Creates a moment-based connected media plan from audience snapshot and conversion action. Use when planning moments, always-on vs burst, or connected media."
+    "description": "Creates a moment-based connected media matrix from audience snapshot, conversion action, and optional triggers — matching Connected-Media Moment Matrix.",
+    "required_fields": [
+      "audience_snapshot",
+      "primary_conversion_action"
+    ],
+    "optional_fields": [
+      "seasonal_or_contextual_triggers"
+    ]
   },
   {
     "name": "rhythm90-synthetic-focus-group",
     "title": "Synthetic Focus Group",
-    "description": "Creates a five-persona synthetic focus group and supports Ask Mode group Q&A. Use when stress-testing messaging, offers, or creative with multiple viewpoints."
+    "description": "Creates a five-persona synthetic focus group and supports Ask Mode group Q&A — matching Synthetic Focus Group. Use to stress-test messaging, offers, or creative.",
+    "required_fields": [
+      "topic_or_category",
+      "audience_seed_info"
+    ],
+    "optional_fields": [
+      "must_include_segments",
+      "question"
+    ]
   },
   {
     "name": "rhythm90-five-cs",
     "title": "5 C's Strategy Builder",
-    "description": "Runs a 5 C's analysis (Company, Customer, Category, Culture, Competition) to surface strategic challenges and opportunities. Use when doing situation analysis or strategy diagnosis."
+    "description": "Runs a 5 C's analysis (Company, Customer, Category, Culture, Competition) with strategic challenge and opportunity — matching 5 C's Strategy Builder.",
+    "required_fields": [
+      "company",
+      "customer",
+      "category",
+      "culture",
+      "competition"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-creative-platform-generator",
     "title": "Creative-Platform Generator",
-    "description": "Generates 3–5 campaign-able creative platforms that extend across touchpoints. Use when developing brand platforms, campaign territories, or big ideas."
+    "description": "Generates 3–5 extensible creative platforms from audience, creative tension, and business objective — matching Creative-Platform Generator.",
+    "required_fields": [
+      "target_audience",
+      "creative_tension",
+      "business_objective"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-hypothesis-builder",
     "title": "Hypothesis Builder",
-    "description": "Crafts 1–3 sharp, testable marketing hypotheses grounded in audience, problem, signal, and desired outcome. Use when forming bets before building a full Play."
+    "description": "Crafts 1–3 sharp testable hypotheses from audience, problem, key signal, and desired outcome — matching Hypothesis Builder. Use before building a full Play.",
+    "required_fields": [
+      "target_audience",
+      "core_problem",
+      "key_signal",
+      "desired_outcome"
+    ],
+    "optional_fields": []
   },
   {
     "name": "rhythm90-operating-system",
     "title": "Rhythm90 Operating System",
-    "description": "Explains and applies the Rhythm90 quarterly OS: Plays, Signals, Rituals, Signal Log, Quarter Board, Review & Renew. Use when the user asks how Rhythm90 works or how to run the system."
+    "description": "Explains and applies the Rhythm90 quarterly OS (Plays, Signals, Rituals, Signal Log, Quarter Board, roles, cadence). Use when the user asks how Rhythm90 works or which skill/tool to use next.",
+    "required_fields": [
+      "question"
+    ],
+    "optional_fields": [
+      "team_context"
+    ]
   }
 ]

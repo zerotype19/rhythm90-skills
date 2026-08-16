@@ -1,11 +1,13 @@
 ---
 name: rhythm90-plain-english-translator
-description: Rewrites marketing copy into clear human language with a side-by-side jargon table and glossary. Use when copy is corporate, vague, or jargon-heavy.
+description: Rewrites marketing copy into clear human language with a side-by-side jargon table and glossary — same input/output as the Plain-English Translator mini-tool. Use when copy is corporate, vague, or jargon-heavy.
 ---
 
 # Plain-English Translator
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/plain-english-translator` · skill key `plain_english_translator`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,36 +15,49 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Rewrites marketing copy into clear human language with a side-by-side jargon table and glossary. Use when copy is corporate, vague, or jargon-heavy.
+User pastes marketing copy that needs de-jargonizing.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Original text / copy block
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Marketing Copy | `original_text` | **Yes** | Hint: "Paste your marketing copy here…" |
 
-- Plain-English rewrite
-- Side-by-side table (what it says → what it really means)
-- Jargon glossary
 
-## Instructions
+## Output schema
 
-1. Preserve intent and claims; remove fog.
+Produce **all** of the following sections (use these headings):
+
+- **Plain-English Rewrite** (`plain_english_rewrite`)
+- **Side-by-Side Table** (`side_by_side_table`) — rows: what_it_says | what_it_really_means
+- **Jargon Glossary** (`jargon_glossary`) — list of terms
+
+## How to run
+
+1. Preserve intent and factual claims; remove fog.
 2. Prefer concrete nouns and verbs; cut buzzwords.
-3. Return structured sections matching Output.
+3. Table should call out the worst offenders, not every word.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

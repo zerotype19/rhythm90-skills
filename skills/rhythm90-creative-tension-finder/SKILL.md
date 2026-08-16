@@ -1,11 +1,13 @@
 ---
 name: rhythm90-creative-tension-finder
-description: Generates creative tensions from a problem or strategy summary to spark campaign ideas. Use when ideating platforms, campaigns, or provocative territories.
+description: Generates creative tensions from a problem/strategy summary with optional platform names — same contract as Creative-Tension Finder. Use when ideating campaign territories.
 ---
 
 # Creative-Tension Finder
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/creative-tension-finder` · skill key `creative_tension_finder`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,35 +15,46 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Generates creative tensions from a problem or strategy summary to spark campaign ideas. Use when ideating platforms, campaigns, or provocative territories.
+User has a problem or strategy summary and wants creative tensions.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Problem or strategy summary
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Problem or Strategy Summary | `problem_or_strategy_summary` | **Yes** | Core challenge, opportunity, or strategy. |
 
-- List of creative tensions (title + tension statement + why it works)
-- Suggested campaign seeds per tension
 
-## Instructions
+## Output schema
 
-1. A creative tension is a productive conflict (e.g. desire vs constraint, identity vs category habit).
-2. Avoid fake tensions that are just rhyming slogans.
-3. Deliver 4–7 tensions with brief rationale and a campaign seed each.
+Produce **all** of the following sections (use these headings):
+
+- **Creative Tensions** (`tensions`) — each: tension, description, optional_platform_name
+
+## How to run
+
+Deliver 4–7 tensions. A tension is a productive conflict (desire vs constraint, identity vs category habit) — not rhyming slogans.
+Avoid fake tensions. Include a short description and optional platform name per item.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

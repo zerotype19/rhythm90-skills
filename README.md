@@ -6,6 +6,8 @@ These are the same conceptual tools that power [rhythm90.io](https://rhythm90.io
 
 ## Skills included
 
+Each skill mirrors the **rhythm90.io form fields** (required/optional, select options, API keys) plus an **intake protocol** so an agent can run it without the website UI.
+
 | Skill | Use when |
 |-------|----------|
 | `rhythm90-operating-system` | Learning or running the Rhythm90 OS |
@@ -13,6 +15,7 @@ These are the same conceptual tools that power [rhythm90.io](https://rhythm90.io
 | `rhythm90-signal-lab` | Interpreting observations into Signals |
 | `rhythm90-ritual-guide` | Kickoff / Pulse Check / Review & Renew |
 | `rhythm90-media-mapper` | Media strategy + test design |
+| `rhythm90-quarterly-planner` | Quarter kickoff / Quarter Board plan |
 | `rhythm90-plain-english-translator` | De-jargon marketing copy |
 | `rhythm90-get-to-by` | Get/To/By strategy statements |
 | `rhythm90-creative-tension-finder` | Creative tensions / campaign sparks |
@@ -26,7 +29,7 @@ These are the same conceptual tools that power [rhythm90.io](https://rhythm90.io
 | `rhythm90-creative-platform-generator` | Extensible creative platforms |
 | `rhythm90-hypothesis-builder` | Sharp testable hypotheses |
 
-Full machine-readable list: [`skills/catalog.json`](skills/catalog.json).
+Full machine-readable list (including required field keys): [`skills/catalog.json`](skills/catalog.json).
 
 ## Install in Cursor
 

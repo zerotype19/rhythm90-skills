@@ -1,11 +1,13 @@
 ---
 name: rhythm90-creative-platform-generator
-description: Generates 3–5 campaign-able creative platforms that extend across touchpoints. Use when developing brand platforms, campaign territories, or big ideas.
+description: Generates 3–5 extensible creative platforms from audience, creative tension, and business objective — matching Creative-Platform Generator.
 ---
 
 # Creative-Platform Generator
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/creative-platform-generator` · skill key `creative_platform_generator`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,37 +15,48 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Generates 3–5 campaign-able creative platforms that extend across touchpoints. Use when developing brand platforms, campaign territories, or big ideas.
+User needs campaign-able brand/creative platforms.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Target audience
-- Creative tension
-- Business objective
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Target Audience Overview | `target_audience` | **Yes** | — |
+| Creative Tension | `creative_tension` | **Yes** | — |
+| Business / Brand Objective | `business_objective` | **Yes** | — |
 
-- 3–5 platforms (name, idea, tension expression, proof, touchpoint extensions)
-- Recommended lead platform + why
 
-## Instructions
+## Output schema
 
-1. Platforms must be extensible across media, CRM, content, and sales — not one-off ads.
-2. Tie each platform to the creative tension and business objective.
-3. Include a simple proof or reason-to-believe.
+Produce **all** of the following sections (use these headings):
+
+- **Platforms** (`platforms`) — [{ platform_name, core_idea, activation_starters[], proof_of_fit }]
+- **Recommended Lead Platform** (`recommended_lead`) — which + why
+
+## How to run
+
+Platforms must extend across media, CRM, content, and sales — not one-off ads. Tie each to the tension and objective.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

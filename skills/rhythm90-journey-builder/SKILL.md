@@ -1,11 +1,13 @@
 ---
 name: rhythm90-journey-builder
-description: Maps a step-by-step customer journey with jobs, emotions, friction, and action tips. Use when designing journeys, funnels, or experience maps.
+description: Maps a customer journey (stages, customer action, brand action, stuck stage) from product, objective, and optional barrier — same as Journey Builder. Use for journeys, funnels, or experience maps.
 ---
 
 # Journey Builder
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/journey-builder` · skill key `journey_builder`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,38 +15,48 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Maps a step-by-step customer journey with jobs, emotions, friction, and action tips. Use when designing journeys, funnels, or experience maps.
+User needs a step-by-step journey map.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Product or service
-- Primary objective
-- Key barrier (optional)
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Product or Service | `product_or_service` | **Yes** | — |
+| Primary Objective | `primary_objective` | **Yes** | — |
+| Key Barrier | `key_barrier` | No | — |
 
-- Journey stages
-- Per stage: customer job, emotion, friction, opportunity, action tip
-- Priority moments that most affect the objective
 
-## Instructions
+## Output schema
 
-1. Keep stages practical (typically 5–7).
-2. Tie every stage to the primary objective and optional key barrier.
-3. Action tips must be specific enough to assign as work.
+Produce **all** of the following sections (use these headings):
+
+- **Journey Map** (`journey_map`) — [{ stage, customer_action, brand_action }]
+- **Stuck Stage** (`stuck_stage`) — where barrier bites + what to do
+
+## How to run
+
+Typically 5–7 stages. Tie every stage to the primary objective. Action tips must be assignable work.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

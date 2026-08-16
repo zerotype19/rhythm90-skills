@@ -1,11 +1,13 @@
 ---
 name: rhythm90-five-cs
-description: Runs a 5 C's analysis (Company, Customer, Category, Culture, Competition) to surface strategic challenges and opportunities. Use when doing situation analysis or strategy diagnosis.
+description: Runs a 5 C's analysis (Company, Customer, Category, Culture, Competition) with strategic challenge and opportunity — matching 5 C's Strategy Builder.
 ---
 
 # 5 C's Strategy Builder
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/five-cs-strategy-builder` · skill key `five_cs_strategy_builder`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,41 +15,56 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Runs a 5 C's analysis (Company, Customer, Category, Culture, Competition) to surface strategic challenges and opportunities. Use when doing situation analysis or strategy diagnosis.
+User needs situation analysis across the five C inputs.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Company
-- Customer
-- Category
-- Culture
-- Competition
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Company | `company` | **Yes** | — |
+| Customer | `customer` | **Yes** | — |
+| Category | `category` | **Yes** | — |
+| Culture | `culture` | **Yes** | — |
+| Competition | `competition` | **Yes** | — |
 
-- Synthesis per C
-- Strategic tensions
-- Priority opportunities
-- Implications for Plays this quarter
 
-## Instructions
+## Output schema
 
-1. Treat each C as evidence, then synthesize across them.
-2. Highlight contradictions (e.g. culture claim vs competitive reality).
-3. End with Play-ready opportunity statements.
+Produce **all** of the following sections (use these headings):
+
+- **Company Insight** (`company_insight`)
+- **Customer Insight** (`customer_insight`)
+- **Category Insight** (`category_insight`)
+- **Culture Insight** (`culture_insight`)
+- **Competition Insight** (`competition_insight`)
+- **Strategic Challenge** (`strategic_challenge`)
+- **Strategic Opportunity** (`strategic_opportunity`)
+- **Play Implications** (`play_implications`) — optional: 1–3 Play-ready bets
+
+## How to run
+
+Treat each C as evidence, then synthesize. Highlight contradictions. End with Play-ready opportunity language.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

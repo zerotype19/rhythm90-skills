@@ -1,11 +1,13 @@
 ---
 name: rhythm90-signal-lab
-description: Interprets messy observations or data into clear Rhythm90 Signals (what it might mean, why it matters, next action). Use when the user has a surprise, friction point, performance shift, or field feedback to decode.
+description: Interprets messy observations into clear Rhythm90 Signals (summary, why it matters, next action, quarterly link) using the same inputs as Signal Lab. Use when decoding surprises, friction, performance shifts, or field feedback for the Signal Log.
 ---
 
 # Rhythm90 Signal Lab
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/signal-lab` · `POST /api/signals/interpret` · skill key `signal_lab`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,42 +15,55 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Interprets messy observations or data into clear Rhythm90 Signals (what it might mean, why it matters, next action). Use when the user has a surprise, friction point, performance shift, or field feedback to decode.
+User has an observation and needs meaning + next action for the Signal Log.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Observation — what was noticed (data, quote, behavior, anomaly)
-- Context (optional) — channel, segment, campaign, timeframe
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Observation | `observation` | **Yes** | Surprising result, customer behavior, friction, creative response, field feedback. Hint: "Describe what you observed…" |
+| Context | `context` | No | Play, team, audience, channel, or moment. Hint: "Add any relevant context…" |
 
-- Signal summary (1–2 sentences)
-- Why it matters
-- Possible interpretations (2–3)
-- Recommended next action
-- Suggested Play link (optional play idea this could seed)
-- What to log in the Signal Log
 
-## Instructions
+## Output schema
+
+Produce **all** of the following sections (use these headings):
+
+- **Signal Summary** (`signal_summary`) — 1–2 sentences
+- **Why It Matters** (`why_it_matters`)
+- **Recommended Next Action** (`recommended_next_action`)
+- **Quarterly Link** (`quarterly_link`)
+- **Possible Interpretations** (`interpretations`) — 2–3 hypotheses (extra vs product UI; useful)
+- **Signal Log Paste Block** (`signal_log_block`) — summary / why / next action ready to paste
+
+## How to run
 
 1. Distinguish **signal** (meaning) from **data** (what happened).
 2. Prefer surprising, friction-heavy, or pattern-based observations over vanity metrics.
 3. Offer interpretations as hypotheses, not certainties.
-4. Recommend one concrete next action the team can take this week.
-5. Format so it can be pasted into a Signal Log (summary / why / next action).
+4. Recommended Next Action must be doable this week.
+5. Always include a paste-ready Signal Log block.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages

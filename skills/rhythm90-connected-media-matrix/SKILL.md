@@ -1,11 +1,13 @@
 ---
 name: rhythm90-connected-media-matrix
-description: Creates a moment-based connected media plan from audience snapshot and conversion action. Use when planning moments, always-on vs burst, or connected media.
+description: Creates a moment-based connected media matrix from audience snapshot, conversion action, and optional triggers — matching Connected-Media Moment Matrix.
 ---
 
 # Connected-Media Moment Matrix
 
-## Rhythm90 principles (always apply)
+**Platform counterpart:** `/app/mini-tools/connected-media-matrix` · skill key `connected_media_matrix`
+
+## Rhythm90 principles
 
 Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
 
@@ -13,38 +15,47 @@ Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning 
 - A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
 - **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
 - Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- When team context is available (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs (headings, bullets, tables) that a team can paste into a board or brief.
+- If the user provides team context (industry, focus areas, description), tailor examples to that context.
+- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
 
 ## When to use
 
-Creates a moment-based connected media plan from audience snapshot and conversion action. Use when planning moments, always-on vs burst, or connected media.
+User needs a moment × channel × message × KPI plan.
 
-## Required inputs
+## Intake protocol (critical)
 
-Ask the user for anything missing:
+These skills replace product forms. Do **not** invent missing required fields.
 
-- Audience snapshot
-- Primary conversion action
-- Seasonal or contextual triggers (optional)
+1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
+2. For fields with **Options**, only accept listed values (or ask them to pick).
+3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
+4. Optional fields: proceed without them; note assumptions briefly.
+5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
 
-## Output
+## Inputs (match the product form)
 
-Produce:
+| Field | API key | Required | Notes |
+|---|---|---|---|
+| Audience Snapshot | `audience_snapshot` | **Yes** | — |
+| Primary Conversion Action | `primary_conversion_action` | **Yes** | — |
+| Seasonal or Contextual Triggers | `seasonal_or_contextual_triggers` | No | — |
 
-- Moment matrix (moment → channel → message → KPI)
-- Sequencing / flighting notes
-- Connected handoffs between channels
 
-## Instructions
+## Output schema
 
-1. Anchor every moment to the conversion action.
-2. Prefer a few high-quality connected moments over a long laundry list.
-3. Call out where creative must change by channel.
+Produce **all** of the following sections (use these headings):
+
+- **Moment Matrix** (`moment_matrix`) — [{ moment_or_trigger, audience_mindset, channel_format_ranked, creative_or_offer_cue, primary_kpi, measurement_approach }]
+
+## How to run
+
+Anchor every moment to the conversion action. Prefer a few high-quality connected moments. Note where creative must change by channel.
+
 
 ## Style
 
 - Direct, practical, operator-grade language
 - No emoji
-- No generic "leverage synergies" consulting filler
-- Prefer tables or labeled sections when comparing options
+- No generic consulting filler
+- Use markdown headings matching the Output schema field names
+- Prefer tables when comparing options or listing stages
