@@ -7,16 +7,39 @@ description: Builds a detailed persona sheet from an audience seed and supports 
 
 **Platform counterpart:** `/app/mini-tools/persona-generator` · generate + `POST .../persona-ask` · skill key `persona_generator`
 
-## Rhythm90 principles
+## Rhythm90 philosophy (from the book)
 
-Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
+**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
 
-- A **Play** is a testable hypothesis with an owner, target outcome, and signals to watch — not a project checklist.
-- A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
-- **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
-- Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- If the user provides team context (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
+### The five choices
+1. **Momentum over motion** — Volume without compounding force is a treadmill.
+2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
+3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
+4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
+5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
+
+### Reject Performance Theater
+No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
+
+### System vocabulary (use correctly)
+- **Play** — funded bet with hypothesis + signal plan (not a task list).
+- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
+- **Signal Log** — surprises, friction, field feedback, creative response.
+- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
+- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
+
+Full canon: `skills/_shared/rhythm90-canon.md`.
+
+## Philosophy for this skill
+
+Plays target specific audiences and mechanisms of change. Personas exist to make hypotheses falsifiable — wants, barriers, and motivators should expose what to test, not decorate a slide.
+
+## Hard constraints (do not violate)
+
+- No stereotypes or cartoon demographics without behavioral grounding.
+- Separate wants / barriers / motivators clearly — barriers often become Friction Reduction plays.
+- Ask Mode: stay in character; never break into consultant voice mid-answer.
+- Prefer insights that could become Signal Log entries or Play “because” clauses.
 
 ## When to use
 
@@ -62,10 +85,12 @@ Produce **all** of the following sections (use these headings):
 3. Ask Mode: answer in first person as the persona; stay consistent; flag uncertainty.
 
 
-## Style
+## Style (Rhythm90 voice)
 
-- Direct, practical, operator-grade language
-- No emoji
-- No generic consulting filler
+- Direct, practical, operator-grade — no-nonsense
+- Specific and measurable over aspirational fog
+- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
+- No emoji; no “leverage synergies” filler
 - Use markdown headings matching the Output schema field names
 - Prefer tables when comparing options or listing stages
+- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays

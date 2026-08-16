@@ -6,18 +6,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { canonInline, bySkill } = require('./philosophy.cjs');
 const ROOT = __dirname;
-
-const PRINCIPLES = `## Rhythm90 principles
-
-Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
-
-- A **Play** is a testable hypothesis with an owner, target outcome, and signals to watch — not a project checklist.
-- A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
-- **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
-- Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- If the user provides team context (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs a team can paste into a board, brief, or Signal Log.`;
 
 const INTAKE = `## Intake protocol (critical)
 
@@ -29,13 +19,15 @@ These skills replace product forms. Do **not** invent missing required fields.
 4. Optional fields: proceed without them; note assumptions briefly.
 5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.`;
 
-const STYLE = `## Style
+const STYLE = `## Style (Rhythm90 voice)
 
-- Direct, practical, operator-grade language
-- No emoji
-- No generic consulting filler
+- Direct, practical, operator-grade — no-nonsense
+- Specific and measurable over aspirational fog
+- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
+- No emoji; no “leverage synergies” filler
 - Use markdown headings matching the Output schema field names
-- Prefer tables when comparing options or listing stages`;
+- Prefer tables when comparing options or listing stages
+- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays`;
 
 function fieldBlock(fields) {
   const lines = ['| Field | API key | Required | Notes |', '|---|---|---|---|'];
@@ -56,6 +48,14 @@ function outputBlock(outputs) {
 }
 
 function render(skill) {
+  const ph = bySkill[skill.name] || {};
+  const philosophy = ph.philosophy
+    ? `## Philosophy for this skill\n\n${ph.philosophy}\n`
+    : '';
+  const constraints = ph.constraints
+    ? `## Hard constraints (do not violate)\n\n${ph.constraints}\n`
+    : '';
+
   return `---
 name: ${skill.name}
 description: ${skill.description}
@@ -64,8 +64,10 @@ description: ${skill.description}
 # ${skill.title}
 
 ${skill.platform ? `**Platform counterpart:** ${skill.platform}\n` : ''}
-${PRINCIPLES}
+${canonInline}
 
+${philosophy}
+${constraints}
 ## When to use
 
 ${skill.when}

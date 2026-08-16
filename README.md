@@ -6,7 +6,9 @@ These are the same conceptual tools that power [rhythm90.io](https://rhythm90.io
 
 ## Skills included
 
-Each skill mirrors the **rhythm90.io form fields** (required/optional, select options, API keys) plus an **intake protocol** so an agent can run it without the website UI.
+Each skill mirrors the **rhythm90.io form fields** (required/optional, select options, API keys), an **intake protocol**, and **book-derived philosophy + hard constraints** so outputs sound like Rhythm90 — not generic marketing advice.
+
+Shared background: [`skills/_shared/rhythm90-canon.md`](skills/_shared/rhythm90-canon.md) (manifesto five choices, system vocabulary, Performance Theater rejection).
 
 | Skill | Use when |
 |-------|----------|

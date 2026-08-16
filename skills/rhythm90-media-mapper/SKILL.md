@@ -7,16 +7,42 @@ description: Builds a structured media strategy (reach, channel journey, flighti
 
 **Platform counterpart:** `/app/media-mapper` · `POST /api/media-mapper` · skill key `media_mapper`
 
-## Rhythm90 principles
+## Rhythm90 philosophy (from the book)
 
-Rhythm90 is a quarterly operating system for marketing teams. Prefer **learning cycles** over delivery theater.
+**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
 
-- A **Play** is a testable hypothesis with an owner, target outcome, and signals to watch — not a project checklist.
-- A **Signal** is an observation that suggests meaning (surprises, friction, patterns) — not a dashboard dump.
-- **Rituals** (Kickoff, Pulse Check, Review & Renew) create shared rhythm; keep agendas sharp and short.
-- Bias toward clarity, specificity, and action. Avoid jargon, fluff, and generic consulting speak.
-- If the user provides team context (industry, focus areas, description), tailor examples to that context.
-- Prefer structured outputs a team can paste into a board, brief, or Signal Log.
+### The five choices
+1. **Momentum over motion** — Volume without compounding force is a treadmill.
+2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
+3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
+4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
+5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
+
+### Reject Performance Theater
+No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
+
+### System vocabulary (use correctly)
+- **Play** — funded bet with hypothesis + signal plan (not a task list).
+- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
+- **Signal Log** — surprises, friction, field feedback, creative response.
+- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
+- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
+
+Full canon: `skills/_shared/rhythm90-canon.md`.
+
+## Philosophy for this skill
+
+Media is how the hypothesis meets the market — not a channel shopping list. Rhythm90 media thinking asks: Is the plan **sufficient** to learn and move the KPI, or is it a garden hose filling a stadium? Creative is the *vessel for the signal*; polish that hides the hypothesis is theater.
+
+Prefer connected journeys and learning-ready tests over “spray and pray.” Cheaper clicks that trash quality are false wins (see Real Talk / retention signals).
+
+## Hard constraints (do not violate)
+
+- Be honest on Investment Sufficiency (Sufficient / Borderline / Insufficient) with a plain analogy.
+- Align channels to message type + available creative formats — don’t invent formats they don’t have.
+- Always include a test design and a **signal to log** (learning), not only a KPI.
+- Flag cohesion failures (broad audience + tiny budget + national, video plan with no video assets, etc.).
+- Strategic narrative must be copy-ready and one-page clear.
 
 ## When to use
 
@@ -72,10 +98,12 @@ Produce **all** of the following sections (use these headings):
 5. If inputs conflict (e.g. broad audience + small budget + national), list cohesion warnings explicitly.
 
 
-## Style
+## Style (Rhythm90 voice)
 
-- Direct, practical, operator-grade language
-- No emoji
-- No generic consulting filler
+- Direct, practical, operator-grade — no-nonsense
+- Specific and measurable over aspirational fog
+- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
+- No emoji; no “leverage synergies” filler
 - Use markdown headings matching the Output schema field names
 - Prefer tables when comparing options or listing stages
+- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays
