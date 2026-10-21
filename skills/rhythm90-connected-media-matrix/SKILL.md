@@ -1,86 +1,45 @@
 ---
 name: rhythm90-connected-media-matrix
-description: Creates a moment-based connected media matrix from audience snapshot, conversion action, and optional triggers — matching Connected-Media Moment Matrix.
+description: "Creates a moment-based connected media matrix from audience snapshot, conversion action, and optional triggers."
 ---
 
 # Connected-Media Moment Matrix
 
-**Platform counterpart:** `/app/mini-tools/connected-media-matrix` · skill key `connected_media_matrix`
+Use this skill in an assistant that can read Markdown instructions. It does not require the Rhythm90 website, an API key, a specific model, or another skill. Read [the method reference](references/method.md) for Rhythm90 vocabulary and evidence standards.
 
-## Rhythm90 philosophy (from the book)
+## Working approach
 
-**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
+1. Identify the user's intended decision or artifact. Read the context they provided before asking questions.
+2. Useful context may include: audience snapshot, primary conversion action. Treat these as prompts for judgment, not a mandatory form. Ask only for missing information that materially changes the answer. A provisional draft is appropriate when its assumptions are labeled.
+3. Distinguish observed evidence (with its source and date when supplied), interpretation, and proposed action. Never invent customer research, sources, budgets, targets, owners, or completed work.
+4. Apply the method below. Challenge vague claims constructively, explain the improvement, and retain the user's actual constraints.
+5. Produce an editable Markdown artifact. Include unresolved questions and the next decision. When asked to save, use a user-selected destination and available tools; otherwise return the artifact in chat. Never claim persistent memory, scheduled work, or an external update without a confirmed tool result.
 
-### The five choices
-1. **Momentum over motion** — Volume without compounding force is a treadmill.
-2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
-3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
-4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
-5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
-
-### Reject Performance Theater
-No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
-
-### System vocabulary (use correctly)
-- **Play** — funded bet with hypothesis + signal plan (not a task list).
-- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
-- **Signal Log** — surprises, friction, field feedback, creative response.
-- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
-- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
-
-Full canon: `skills/_shared/rhythm90-canon.md`.
-
-## Philosophy for this skill
+## Method
 
 Connected media means moments that hand off with intent — not a channel laundry list. Each moment should advance a conversion action and produce a learnable signal.
 
-## Hard constraints (do not violate)
-
 - Few high-quality connected moments > long spray lists.
-- Every row needs mindset + ranked format + KPI + measurement — no empty cells.
+- For each useful row, identify mindset, channel/format, KPI, and measurement approach. Mark unknowns rather than filling cells with invented facts.
 - Note where creative must change by channel (vessel for the signal).
 - Anchor to the primary conversion action relentlessly.
 
-## When to use
+## Useful output
 
-User needs a moment × channel × message × KPI plan.
+Use the relevant fields below. Omit irrelevant sections; mark missing evidence explicitly:
 
-## Intake protocol (critical)
+- **Moment Matrix** — [{ moment_or_trigger, audience_mindset, channel_format_ranked, creative_or_offer_cue, primary_kpi, measurement_approach }]
 
-These skills replace product forms. Do **not** invent missing required fields.
+## Evidence and review
 
-1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
-2. For fields with **Options**, only accept listed values (or ask them to pick).
-3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
-4. Optional fields: proceed without them; note assumptions briefly.
-5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
+Trace conclusions to the provided inputs. A plausible explanation is still a hypothesis. Include counter-evidence or alternative explanations when they could change the decision. Do not convert AI-simulated audiences into actual customer evidence. Decisions to fund, scale, or retire work remain recommendations until the practitioner accepts them.
 
-## Inputs (match the product form)
+Keep output proportional to the task. A short field note or one-page canvas is usually better than a sprawling report. Avoid jargon and fabricated certainty. If the user is studying, explain the reasoning and offer one exercise rather than doing all the thinking for them.
 
-| Field | API key | Required | Notes |
-|---|---|---|---|
-| Audience Snapshot | `audience_snapshot` | **Yes** | — |
-| Primary Conversion Action | `primary_conversion_action` | **Yes** | — |
-| Seasonal or Contextual Triggers | `seasonal_or_contextual_triggers` | No | — |
+## Worked behavior check
 
+Request: Put every channel in our plan. We only have a landing page and email creative.
 
-## Output schema
+Expected approach: Propose a small connected sequence using the available assets. Flag any additional production requirement instead of pretending assets exist.
 
-Produce **all** of the following sections (use these headings):
-
-- **Moment Matrix** (`moment_matrix`) — [{ moment_or_trigger, audience_mindset, channel_format_ranked, creative_or_offer_cue, primary_kpi, measurement_approach }]
-
-## How to run
-
-Anchor every moment to the conversion action. Prefer a few high-quality connected moments. Note where creative must change by channel.
-
-
-## Style (Rhythm90 voice)
-
-- Direct, practical, operator-grade — no-nonsense
-- Specific and measurable over aspirational fog
-- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
-- No emoji; no “leverage synergies” filler
-- Use markdown headings matching the Output schema field names
-- Prefer tables when comparing options or listing stages
-- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays
+Before returning the artifact, check: Is the evidence real and traceable? Are assumptions visible? Is there a clear next decision? Does this help learning rather than simply add output?

@@ -1,109 +1,54 @@
 ---
 name: rhythm90-media-mapper
-description: Builds a structured media strategy (reach, channel journey, flighting, sufficiency, test design, narrative) from the same multi-select Media Mapper form as rhythm90.io. Use when planning media mix, flighting, or media tests.
+description: "Builds a structured media strategy (reach, channel journey, flighting, sufficiency, test design, narrative) from audience, budget, goals, and evidence. Use when planning media mix, flighting, or media tests."
 ---
 
 # Rhythm90 Media Mapper
 
-**Platform counterpart:** `/app/media-mapper` · `POST /api/media-mapper` · skill key `media_mapper`
+Use this skill in an assistant that can read Markdown instructions. It does not require the Rhythm90 website, an API key, a specific model, or another skill. Read [the method reference](references/method.md) for Rhythm90 vocabulary and evidence standards.
 
-## Rhythm90 philosophy (from the book)
+## Working approach
 
-**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
+1. Identify the user's intended decision or artifact. Read the context they provided before asking questions.
+2. Useful context may include: audience type, audience fidelity, business goal, primary kpi, timeframe, message type, creative formats, competitive activity, budget level, geographic scope, test type. Treat these as prompts for judgment, not a mandatory form. Ask only for missing information that materially changes the answer. A provisional draft is appropriate when its assumptions are labeled.
+3. Distinguish observed evidence (with its source and date when supplied), interpretation, and proposed action. Never invent customer research, sources, budgets, targets, owners, or completed work.
+4. Apply the method below. Challenge vague claims constructively, explain the improvement, and retain the user's actual constraints.
+5. Produce an editable Markdown artifact. Include unresolved questions and the next decision. When asked to save, use a user-selected destination and available tools; otherwise return the artifact in chat. Never claim persistent memory, scheduled work, or an external update without a confirmed tool result.
 
-### The five choices
-1. **Momentum over motion** — Volume without compounding force is a treadmill.
-2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
-3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
-4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
-5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
-
-### Reject Performance Theater
-No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
-
-### System vocabulary (use correctly)
-- **Play** — funded bet with hypothesis + signal plan (not a task list).
-- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
-- **Signal Log** — surprises, friction, field feedback, creative response.
-- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
-- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
-
-Full canon: `skills/_shared/rhythm90-canon.md`.
-
-## Philosophy for this skill
+## Method
 
 Media is how the hypothesis meets the market — not a channel shopping list. Rhythm90 media thinking asks: Is the plan **sufficient** to learn and move the KPI, or is it a garden hose filling a stadium? Creative is the *vessel for the signal*; polish that hides the hypothesis is theater.
 
 Prefer connected journeys and learning-ready tests over “spray and pray.” Cheaper clicks that trash quality are false wins (see Real Talk / retention signals).
 
-## Hard constraints (do not violate)
-
-- Be honest on Investment Sufficiency (Sufficient / Borderline / Insufficient) with a plain analogy.
+- Assess investment sufficiency only when budget, costs, audience scale, and learning needs are known. Otherwise mark it undetermined and identify the required inputs.
 - Align channels to message type + available creative formats — don’t invent formats they don’t have.
 - Always include a test design and a **signal to log** (learning), not only a KPI.
 - Flag cohesion failures (broad audience + tiny budget + national, video plan with no video assets, etc.).
 - Strategic narrative must be copy-ready and one-page clear.
 
-## When to use
+## Useful output
 
-User needs a media strategy grounded in audience, KPI, creative, budget, and learning goals.
+Use the relevant fields below. Omit irrelevant sections; mark missing evidence explicitly:
 
-## Intake protocol (critical)
+- **Reach Strategy** — audience approach and rationale; quantify reach or frequency only from supplied evidence or a transparent calculation
+- **Channel Journey** — awareness / engagement / conversion channels + summary
+- **Flighting Model** — model + rationale
+- **Investment Sufficiency** — Sufficient | Borderline | Insufficient | Undetermined, with evidence and assumptions
+- **Test Design** — type, kpi, signal_to_log
+- **Strategic Narrative** — copy-ready
+- **Cohesion Review** — concrete strengths, conflicts, and missing inputs; avoid an uncalibrated numerical score
 
-These skills replace product forms. Do **not** invent missing required fields.
+## Evidence and review
 
-1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
-2. For fields with **Options**, only accept listed values (or ask them to pick).
-3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
-4. Optional fields: proceed without them; note assumptions briefly.
-5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
+Trace conclusions to the provided inputs. A plausible explanation is still a hypothesis. Include counter-evidence or alternative explanations when they could change the decision. Do not convert AI-simulated audiences into actual customer evidence. Decisions to fund, scale, or retire work remain recommendations until the practitioner accepts them.
 
-## Inputs (match the product form)
+Keep output proportional to the task. A short field note or one-page canvas is usually better than a sprawling report. Avoid jargon and fabricated certainty. If the user is studying, explain the reasoning and offer one exercise rather than doing all the thinking for them.
 
-| Field | API key | Required | Notes |
-|---|---|---|---|
-| Audience Type | `audience_type` | **Yes** | Options: New · Existing · Lapsed |
-| Audience Fidelity | `audience_fidelity` | **Yes** | Options: Broad Demo · Modeled Segment · 1P Matched |
-| Business Goal | `business_goal` | **Yes** | Options: Awareness · Demand · Loyalty · Product Launch |
-| Primary KPI | `primary_kpi` | **Yes** | Options: ROAS · Leads · CAC · Sales · LTV |
-| Timeframe | `timeframe` | **Yes** | Options: This Quarter · Next 30 Days · Long-Term |
-| Message Type | `message_type` | **Yes** | Options: Brand Story · Product Feature · Promotional Offer · Testimonial |
-| Available Creative Formats | `creative_formats` | **Yes** | Multi-select; at least one. Options: 15s Video · Static Display · Audio · Interactive · Long-form Video |
-| Competitive Activity Level | `competitive_activity` | **Yes** | Options: Low · Moderate · High |
-| Budget Level | `budget_level` | **Yes** | Options: Small · Medium · Large |
-| Geographic Scope | `geographic_scope` | **Yes** | Options: National · Regional · Local |
-| Blocked Channels | `blocked_channels` | No | Options: Social · CTV · Audio · Display · CRM · Search |
-| Test Type | `test_type` | **Yes** | Options: Holdout · Matched Market · Sequential · None |
-| Learning Focus | `learning_focus` | No | Max ~300 chars. Hint: "What do you want to learn?" |
+## Worked behavior check
 
+Request: Recommend reach and frequency for a national launch. We have not set a budget.
 
-## Output schema
+Expected approach: Describe candidate channel roles, but leave numerical sufficiency undetermined. Ask for budget, costs, audience scale, and the learning objective before estimating reach.
 
-Produce **all** of the following sections (use these headings):
-
-- **Reach Strategy** (`reach_strategy`) — effective_frequency, recommended_reach %, note
-- **Channel Journey** (`channel_journey`) — awareness / engagement / conversion channels + summary
-- **Flighting Model** (`flighting_model`) — model + rationale
-- **Investment Sufficiency** (`sufficiency_check`) — Sufficient | Borderline | Insufficient + analogy + warnings
-- **Test Design** (`test_design`) — type, kpi, signal_to_log
-- **Strategic Narrative** (`strategic_narrative`) — copy-ready
-- **Strategy Cohesion Score** (`strategy_cohesion_score`) — 0–100 with brief why
-
-## How to run
-
-1. Be honest about underpowered plans — call Sufficiency accurately.
-2. Align channels to message type and available creative formats.
-3. Always include a learning-ready test and a clear signal to log.
-4. Strategic Narrative should be pasteable into a brief.
-5. If inputs conflict (e.g. broad audience + small budget + national), list cohesion warnings explicitly.
-
-
-## Style (Rhythm90 voice)
-
-- Direct, practical, operator-grade — no-nonsense
-- Specific and measurable over aspirational fog
-- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
-- No emoji; no “leverage synergies” filler
-- Use markdown headings matching the Output schema field names
-- Prefer tables when comparing options or listing stages
-- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays
+Before returning the artifact, check: Is the evidence real and traceable? Are assumptions visible? Is there a clear next decision? Does this help learning rather than simply add output?

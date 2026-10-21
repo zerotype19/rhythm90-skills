@@ -1,87 +1,46 @@
 ---
 name: rhythm90-creative-platform-generator
-description: Generates 3–5 extensible creative platforms from audience, creative tension, and business objective — matching Creative-Platform Generator.
+description: "Generates 3–5 extensible creative platforms from audience, creative tension, and business objective."
 ---
 
 # Creative-Platform Generator
 
-**Platform counterpart:** `/app/mini-tools/creative-platform-generator` · skill key `creative_platform_generator`
+Use this skill in an assistant that can read Markdown instructions. It does not require the Rhythm90 website, an API key, a specific model, or another skill. Read [the method reference](references/method.md) for Rhythm90 vocabulary and evidence standards.
 
-## Rhythm90 philosophy (from the book)
+## Working approach
 
-**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
+1. Identify the user's intended decision or artifact. Read the context they provided before asking questions.
+2. Useful context may include: target audience, creative tension, business objective. Treat these as prompts for judgment, not a mandatory form. Ask only for missing information that materially changes the answer. A provisional draft is appropriate when its assumptions are labeled.
+3. Distinguish observed evidence (with its source and date when supplied), interpretation, and proposed action. Never invent customer research, sources, budgets, targets, owners, or completed work.
+4. Apply the method below. Challenge vague claims constructively, explain the improvement, and retain the user's actual constraints.
+5. Produce an editable Markdown artifact. Include unresolved questions and the next decision. When asked to save, use a user-selected destination and available tools; otherwise return the artifact in chat. Never claim persistent memory, scheduled work, or an external update without a confirmed tool result.
 
-### The five choices
-1. **Momentum over motion** — Volume without compounding force is a treadmill.
-2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
-3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
-4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
-5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
-
-### Reject Performance Theater
-No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
-
-### System vocabulary (use correctly)
-- **Play** — funded bet with hypothesis + signal plan (not a task list).
-- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
-- **Signal Log** — surprises, friction, field feedback, creative response.
-- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
-- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
-
-Full canon: `skills/_shared/rhythm90-canon.md`.
-
-## Philosophy for this skill
+## Method
 
 Platforms must extend across touchpoints — media, CRM, content, sales — carrying one clear tension and proof. One-off ad ideas are motion; platforms create momentum.
-
-## Hard constraints (do not violate)
 
 - 3–5 platforms max; recommend one lead.
 - Each needs core idea, activation starters, proof of fit.
 - Must express the creative tension and serve the business objective.
 - Kill platforms that only work in a single channel.
 
-## When to use
+## Useful output
 
-User needs campaign-able brand/creative platforms.
+Use the relevant fields below. Omit irrelevant sections; mark missing evidence explicitly:
 
-## Intake protocol (critical)
+- **Platforms** — [{ platform_name, core_idea, activation_starters[], proof_of_fit }]
+- **Recommended Lead Platform** — which + why
 
-These skills replace product forms. Do **not** invent missing required fields.
+## Evidence and review
 
-1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
-2. For fields with **Options**, only accept listed values (or ask them to pick).
-3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
-4. Optional fields: proceed without them; note assumptions briefly.
-5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
+Trace conclusions to the provided inputs. A plausible explanation is still a hypothesis. Include counter-evidence or alternative explanations when they could change the decision. Do not convert AI-simulated audiences into actual customer evidence. Decisions to fund, scale, or retire work remain recommendations until the practitioner accepts them.
 
-## Inputs (match the product form)
+Keep output proportional to the task. A short field note or one-page canvas is usually better than a sprawling report. Avoid jargon and fabricated certainty. If the user is studying, explain the reasoning and offer one exercise rather than doing all the thinking for them.
 
-| Field | API key | Required | Notes |
-|---|---|---|---|
-| Target Audience Overview | `target_audience` | **Yes** | — |
-| Creative Tension | `creative_tension` | **Yes** | — |
-| Business / Brand Objective | `business_objective` | **Yes** | — |
+## Worked behavior check
 
+Request: Give us a creative platform from a slogan alone.
 
-## Output schema
+Expected approach: Treat the slogan as a starting idea. Clarify the audience, tension, and business objective, then show how a candidate could extend across touchpoints.
 
-Produce **all** of the following sections (use these headings):
-
-- **Platforms** (`platforms`) — [{ platform_name, core_idea, activation_starters[], proof_of_fit }]
-- **Recommended Lead Platform** (`recommended_lead`) — which + why
-
-## How to run
-
-Platforms must extend across media, CRM, content, and sales — not one-off ads. Tie each to the tension and objective.
-
-
-## Style (Rhythm90 voice)
-
-- Direct, practical, operator-grade — no-nonsense
-- Specific and measurable over aspirational fog
-- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
-- No emoji; no “leverage synergies” filler
-- Use markdown headings matching the Output schema field names
-- Prefer tables when comparing options or listing stages
-- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays
+Before returning the artifact, check: Is the evidence real and traceable? Are assumptions visible? Is there a clear next decision? Does this help learning rather than simply add output?

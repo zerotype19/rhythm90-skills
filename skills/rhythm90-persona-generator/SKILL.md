@@ -1,96 +1,54 @@
 ---
 name: rhythm90-persona-generator
-description: Builds a detailed persona sheet from an audience seed and supports Ask Mode Q&A in character — matching Persona Generator. Use when creating personas or interviewing a synthetic customer.
+description: "Build an evidence-aware audience persona or a clearly labeled hypothetical persona for planning and research preparation."
 ---
 
 # Persona Generator + Ask Mode
 
-**Platform counterpart:** `/app/mini-tools/persona-generator` · generate + `POST .../persona-ask` · skill key `persona_generator`
+Use this skill in an assistant that can read Markdown instructions. It does not require the Rhythm90 website, an API key, a specific model, or another skill. Read [the method reference](references/method.md) for Rhythm90 vocabulary and evidence standards.
 
-## Rhythm90 philosophy (from the book)
+## Working approach
 
-**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
+1. Identify the user's intended decision or artifact. Read the context they provided before asking questions.
+2. Useful context may include: audience seed. Treat these as prompts for judgment, not a mandatory form. Ask only for missing information that materially changes the answer. A provisional draft is appropriate when its assumptions are labeled.
+3. Distinguish observed evidence (with its source and date when supplied), interpretation, and proposed action. Never invent customer research, sources, budgets, targets, owners, or completed work.
+4. Apply the method below. Challenge vague claims constructively, explain the improvement, and retain the user's actual constraints.
+5. Produce an editable Markdown artifact. Include unresolved questions and the next decision. When asked to save, use a user-selected destination and available tools; otherwise return the artifact in chat. Never claim persistent memory, scheduled work, or an external update without a confirmed tool result.
 
-### The five choices
-1. **Momentum over motion** — Volume without compounding force is a treadmill.
-2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
-3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
-4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
-5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
-
-### Reject Performance Theater
-No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
-
-### System vocabulary (use correctly)
-- **Play** — funded bet with hypothesis + signal plan (not a task list).
-- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
-- **Signal Log** — surprises, friction, field feedback, creative response.
-- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
-- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
-
-Full canon: `skills/_shared/rhythm90-canon.md`.
-
-## Philosophy for this skill
+## Method
 
 Plays target specific audiences and mechanisms of change. Personas exist to make hypotheses falsifiable — wants, barriers, and motivators should expose what to test, not decorate a slide.
 
-## Hard constraints (do not violate)
-
 - No stereotypes or cartoon demographics without behavioral grounding.
 - Separate wants / barriers / motivators clearly — barriers often become Friction Reduction plays.
-- Ask Mode: stay in character; never break into consultant voice mid-answer.
-- Prefer insights that could become Signal Log entries or Play “because” clauses.
+- For role-play, label answers as simulated. Step out of character whenever needed to explain uncertainty or distinguish fiction from evidence.
+- Use hypothetical reactions to plan research. Only real, sourced observations belong in an evidence-based Signal Log or Play rationale.
 
-## When to use
+## Useful output
 
-User wants a persona profile and/or to ask that persona questions.
+Use the relevant fields below. Omit irrelevant sections; mark missing evidence explicitly:
 
-## Intake protocol (critical)
+- **Persona Sheet** — behavior, context, mindset, needs, evidence sources, and explicitly labeled assumptions; include demographic fields only when relevant and supported
+- **Wants** — [{ category, description }]
+- **Barriers** — [{ category, description }]
+- **Motivators** — [{ category, description }]
+- **Ask Mode Message** — how to interview them
+- **Ask Answer** — Ask Mode only; first person; include persona_name
 
-These skills replace product forms. Do **not** invent missing required fields.
+## Evidence and review
 
-1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
-2. For fields with **Options**, only accept listed values (or ask them to pick).
-3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
-4. Optional fields: proceed without them; note assumptions briefly.
-5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
+Trace conclusions to the provided inputs. A plausible explanation is still a hypothesis. Include counter-evidence or alternative explanations when they could change the decision. Do not convert AI-simulated audiences into actual customer evidence. Decisions to fund, scale, or retire work remain recommendations until the practitioner accepts them.
 
-## Inputs (match the product form)
+Keep output proportional to the task. A short field note or one-page canvas is usually better than a sprawling report. Avoid jargon and fabricated certainty. If the user is studying, explain the reasoning and offer one exercise rather than doing all the thinking for them.
 
-| Field | API key | Required | Notes |
-|---|---|---|---|
-| Audience Seed | `audience_seed` | **Yes** | Hint: "e.g. urban young adults evaluating B2B SaaS for the first time" |
-| Ask Mode Question | `question` | No | Required only when running Ask Mode after a persona exists. Hint: "Ask the persona a question…" |
+## Worked behavior check
 
+Request: Invent a customer persona and quote them as evidence.
 
-### Additional intake notes
+Expected approach: Offer a labeled hypothetical persona for ideation, with assumptions and a research plan. Do not present invented quotes as real customer testimony.
 
-Mode A — Generate: require `audience_seed`. Mode B — Ask: require an existing persona sheet (from this chat or pasted) + `question`.
+Before returning the artifact, check: Is the evidence real and traceable? Are assumptions visible? Is there a clear next decision? Does this help learning rather than simply add output?
 
-## Output schema
+## Simulation boundary
 
-Produce **all** of the following sections (use these headings):
-
-- **Persona Sheet** (`persona_sheet`) — name, age, location, occupation, income, interests, demographics, behavior, mindset, needs
-- **Wants** (`wants`) — [{ category, description }]
-- **Barriers** (`barriers`) — [{ category, description }]
-- **Motivators** (`motivators`) — [{ category, description }]
-- **Ask Mode Message** (`ask_mode_message`) — how to interview them
-- **Ask Answer** (`answer`) — Ask Mode only; first person; include persona_name
-
-## How to run
-
-1. Build a vivid but non-stereotyped persona grounded in the seed.
-2. Separate wants, barriers, and motivators clearly.
-3. Ask Mode: answer in first person as the persona; stay consistent; flag uncertainty.
-
-
-## Style (Rhythm90 voice)
-
-- Direct, practical, operator-grade — no-nonsense
-- Specific and measurable over aspirational fog
-- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
-- No emoji; no “leverage synergies” filler
-- Use markdown headings matching the Output schema field names
-- Prefer tables when comparing options or listing stages
-- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays
+Label every simulated persona, quotation, and response as hypothetical. Do not infer real demographic prevalence, research sample sizes, purchase intent percentages, or market validation. Use simulations to prepare questions and uncover assumptions for real research.

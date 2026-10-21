@@ -1,42 +1,25 @@
 ---
 name: rhythm90-quarterly-planner
-description: Builds a quarterly Rhythm90 plan (objective, focus areas, plays, assumptions, signals, next steps) from the same multi-step planner inputs as rhythm90.io. Use when kicking off a quarter or resetting the Quarter Board.
+description: "Builds a quarterly Rhythm90 plan (objective, focus areas, plays, assumptions, signals, next steps) from business context and learning goals. Use when kicking off a quarter or resetting the Quarter Board."
 ---
 
 # Rhythm90 Quarterly Planner
 
-**Platform counterpart:** `/app/quarterly-planner` · `POST /api/planner/sessions` · skill key `quarterly_planner`
+Use this skill in an assistant that can read Markdown instructions. It does not require the Rhythm90 website, an API key, a specific model, or another skill. Read [the method reference](references/method.md) for Rhythm90 vocabulary and evidence standards.
 
-## Rhythm90 philosophy (from the book)
+## Working approach
 
-**This is not another framework.** Frameworks die in decks. A **rhythm** is the pulse of how a team decides under pressure.
+1. Identify the user's intended decision or artifact. Read the context they provided before asking questions.
+2. Useful context may include: big challenge, learning goals, signals to watch. Treat these as prompts for judgment, not a mandatory form. Ask only for missing information that materially changes the answer. A provisional draft is appropriate when its assumptions are labeled.
+3. Distinguish observed evidence (with its source and date when supplied), interpretation, and proposed action. Never invent customer research, sources, budgets, targets, owners, or completed work.
+4. Apply the method below. Challenge vague claims constructively, explain the improvement, and retain the user's actual constraints.
+5. Produce an editable Markdown artifact. Include unresolved questions and the next decision. When asked to save, use a user-selected destination and available tools; otherwise return the artifact in chat. Never claim persistent memory, scheduled work, or an external update without a confirmed tool result.
 
-### The five choices
-1. **Momentum over motion** — Volume without compounding force is a treadmill.
-2. **Signals over stats** — Stats = *what* happened. Signals = *why* (friction, resonance, intent).
-3. **Clarity over complexity** — If it can’t fit on one page, it isn’t a strategy.
-4. **Consistent learning over heroic launches** — Compound knowledge; don’t burn out on big-bang launches.
-5. **Wisdom over shipping** — End-of-cycle question: *What did we learn?* not *What did we ship?*
+## Method
 
-### Reject Performance Theater
-No vanity-metric camouflage, no seventy-slide QBRs, no projects dressed up as strategy. Prefer honest discovery and the courage to kill a bad hypothesis.
-
-### System vocabulary (use correctly)
-- **Play** — funded bet with hypothesis + signal plan (not a task list).
-- **Quarter Board** — 1–3 visible plays; momentum scoreboard, not Jira.
-- **Signal Log** — surprises, friction, field feedback, creative response.
-- **Kickoff / Pulse Check / R&R** — commit → unblock+early signals → synthesize learning.
-- **Rhythm90 Lead** — protects cadence from theater; not a ticket-chasing PM.
-
-Full canon: `skills/_shared/rhythm90-canon.md`.
-
-## Philosophy for this skill
-
-A quarter is a learning cycle, not a delivery calendar. Limit the Board to **1–3 high-impact plays**. The plan should make the macro-hypothesis of the quarter visible — what the organization is trying to prove about the market.
+A quarter is a learning cycle, not a delivery calendar. Limit the Board to **1–3 high-impact plays**. The plan should make the macro-hypothesis of the quarter visible — what the organization needs to understand about the market.
 
 Visibility over reporting: the Quarter Board is a cultural conversation tool, not a spreadsheet graveyard.
-
-## Hard constraints (do not violate)
 
 - Ruthlessly constrain play count; more plays = prioritization failure.
 - Every proposed play needs a path to a hypothesis + signal plan (or flag it as incomplete).
@@ -44,62 +27,29 @@ Visibility over reporting: the Quarter Board is a cultural conversation tool, no
 - Outcomes must be concrete; squishy goals produce squishy learning.
 - Next steps should sequence Kickoff → Pulse → learning capture → R&R — not a Gantt of tasks.
 
-## When to use
+## Useful output
 
-User is planning a quarter: challenge, learning goals, signals, roles, carryover.
+Use the relevant fields below. Omit irrelevant sections; mark missing evidence explicitly:
 
-## Intake protocol (critical)
+- **Objective**
+- **Carryover Learnings**
+- **Key Focus Areas** — list
+- **Plays to Implement** — each: title, description, leads, expected_outcome
+- **Key Assumptions**
+- **Cross-Functional Needs**
+- **Signals to Watch** — list
+- **Next Steps** — list
 
-These skills replace product forms. Do **not** invent missing required fields.
+## Evidence and review
 
-1. Collect **Required** inputs before generating. Ask in one concise message (bulleted list).
-2. For fields with **Options**, only accept listed values (or ask them to pick).
-3. Accept partial free-text if the user dumps context in prose — then map it to the field schema and confirm gaps.
-4. Optional fields: proceed without them; note assumptions briefly.
-5. After generating, offer one follow-up: refine, save-as-play/signal framing, or run a related skill.
+Trace conclusions to the provided inputs. A plausible explanation is still a hypothesis. Include counter-evidence or alternative explanations when they could change the decision. Do not convert AI-simulated audiences into actual customer evidence. Decisions to fund, scale, or retire work remain recommendations until the practitioner accepts them.
 
-## Inputs (match the product form)
+Keep output proportional to the task. A short field note or one-page canvas is usually better than a sprawling report. Avoid jargon and fabricated certainty. If the user is studying, explain the reasoning and offer one exercise rather than doing all the thinking for them.
 
-| Field | API key | Required | Notes |
-|---|---|---|---|
-| Biggest Challenge This Quarter | `big_challenge` | **Yes** | Hint: "E.g., improve customer retention by 20%" |
-| Learning Goals | `learning_goals` | **Yes** | Aim for ≤3. Options: Customer retention · Experience friction · Growth channels · Team alignment · Data & analytics · Product-market fit · Operational efficiency · Brand awareness · Revenue optimization · User engagement · Market expansion · Process improvement · Technology adoption · Competitive analysis · Other (specify) |
-| Business Context | `business_context` | No | — |
-| Known Plays Already Planned | `known_plays` | No | — |
-| Signals to Watch | `signals_to_watch` | **Yes** | Options: Funnel drop-offs · Click-throughs / engagement · Support / field feedback · Revenue metrics · User behavior · Market trends · Competitor activity · Team performance · Customer feedback · Operational metrics · Other (specify) |
-| Anticipated Blockers | `blockers` | No | — |
-| Roles | `roles` | No | rhythm90Lead, strategicLeads[], executionalLeads[], signalOwner |
-| Carryover Learnings | `carryover_learnings` | No | — |
-| Cross-Functional Needs | `cross_functional_needs` | No | — |
+## Worked behavior check
 
+Request: Plan the quarter from these six campaign requests.
 
-## Output schema
+Expected approach: Identify the learning question and distinguish strategic bets from delivery tasks. Recommend at most three candidate Plays; leave unsupported metrics and ownership open.
 
-Produce **all** of the following sections (use these headings):
-
-- **Objective** (`objective`)
-- **Carryover Learnings** (`carryover_learnings`)
-- **Key Focus Areas** (`key_focus_areas`) — list
-- **Plays to Implement** (`plays_to_implement`) — each: title, description, leads, expected_outcome
-- **Key Assumptions** (`key_assumptions`)
-- **Cross-Functional Needs** (`cross_functional_needs`)
-- **Signals to Watch** (`signals_to_watch`) — list
-- **Next Steps** (`next_steps`) — list
-
-## How to run
-
-1. Required backend trio: big_challenge, learning_goals, signals_to_watch — never skip.
-2. Plays should be hypothesis-shaped bets, not project lists.
-3. Keep the plan executable for one quarter; resist boiling the ocean.
-4. Next Steps should sequence Kickoff → early Pulse → mid-quarter learning.
-
-
-## Style (Rhythm90 voice)
-
-- Direct, practical, operator-grade — no-nonsense
-- Specific and measurable over aspirational fog
-- Call out Performance Theater, vanity metrics, and projects-in-disguise when they appear
-- No emoji; no “leverage synergies” filler
-- Use markdown headings matching the Output schema field names
-- Prefer tables when comparing options or listing stages
-- Prefer short, paste-ready artifacts (Board row, Signal Log entry, brief) over essays
+Before returning the artifact, check: Is the evidence real and traceable? Are assumptions visible? Is there a clear next decision? Does this help learning rather than simply add output?
