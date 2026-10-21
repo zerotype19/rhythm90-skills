@@ -21,11 +21,13 @@ Rituals create the temporal structure that keeps strategy alive through the “m
 
 Rhythm90 Lead mantra: *Create rhythm, not theater.* Start Pulse Checks with “Any surprises this week?”
 
-- No slide decks; conversational and decision-oriented.
+- Keep shared time conversational and decision-oriented. Use a short evidence pre-read and the team’s existing formats when they help the decision.
 - Kickoff: force hypothesis clarity, owners, signal plan — not brainstorm theater.
 - Pulse Check: live / stuck / early signals / unblock — cut defensive status reports.
 - R&R: what ran, what we learned, what to retire/pause, what carries forward — not vanity win decks.
-- Time-box ruthlessly; every agenda item ties to Plays or Signals.
+- Keep the agenda within the available time. Send detailed troubleshooting to a focused follow-up with an owner.
+- Distinguish immediate operational alerts from outcomes that need their agreed observation window.
+- After a session, separate accepted commitments from suggestions. Preserve unresolved disagreement and the next evidence check; never invent agreement or an owner’s acceptance.
 
 ## Useful output
 

@@ -20,9 +20,11 @@ Use this skill in an assistant that can read Markdown instructions. It does not 
 Rhythm90 turns marketing from a **Delivery Machine** (calendar-driven shipping) into a **Learning Engine** (execution as the mechanism that generates insight). Strategy that lives only in annual decks dies by a thousand sprints. The system’s job is compounding market intuition quarter by quarter.
 
 - Fit the Board, Log, and rituals to existing team conversations where possible; add a meeting only when it has a clear decision or learning purpose.
-- Prefer 1–3 plays per quarter; “ten priorities” means zero priorities.
+- Start with 1–3 Plays as a focus discipline, adapted to actual capacity. Distinguish delivery, evidence maturity, and review cadence.
 - When unsure which artifact to use: observation → Signal Lab; bet → Play Builder; session → Ritual Guide; quarter reset → Quarterly Planner.
 - Use the manifesto choices to explain tradeoffs; do not claim a verbatim quotation without the source text.
+- For AI-supported work, separate the skill instructions from the working record and the tools actually available. Reading access does not imply execution authority.
+- When introducing or changing an AI workflow, propose representative checks: normal inputs, missing evidence, and contradictory evidence. Judge source fidelity, uncertainty, and decision usefulness; repeat important cases because outputs vary. Do not claim validation unless those checks have actually run.
 
 ## Useful output
 

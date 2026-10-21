@@ -17,19 +17,20 @@ Use this skill in an assistant that can read Markdown instructions. It does not 
 
 ## Method
 
-Consistent learning over heroic launches. Test → Learn → Scale is the flywheel: falsifiable hypotheses, kill criteria, then scale only what earned the right.
+Build a roadmap around the decision the evidence must support. Distinguish discovery, a controlled test, and an observational comparison; match the conclusion to the design.
 
-- Every hypothesis needs success *and* kill thresholds before more spend.
-- Respect resource constraints — underpowered “tests” that can’t learn are theater.
-- Scale criteria must be earned by signal + KPI, not optimism.
-- Prefer sequenced learning over parallel chaos.
+- Before a controlled test, define the hypothesis, primary outcome and denominator, guardrails, comparison, eligible population, observation window, and analysis plan.
+- Assess feasibility from baseline rates, traffic, meaningful effect size, and available time. Ask for missing inputs rather than inventing a target sample. Qualitative research may answer a narrower question when a quantitative test is infeasible.
+- Agree success, stop, and review conditions before inspecting results. Avoid declaring a winner from repeated informal peeking; use the chosen analysis plan. Operational failures and harm guardrails may require earlier intervention.
+- Distinguish inconclusive evidence from evidence that an effect is absent. Record uncertainty and competing explanations, especially in before-and-after comparisons.
+- Before scaling, check economics, customer quality, and whether the observed audience and conditions transfer. Propose a bounded next step when they may not.
 
 ## Useful output
 
 Use the relevant fields below. Omit irrelevant sections; mark missing evidence explicitly:
 
 - **Core Hypotheses** — string list
-- **Test Design Table** — [{ hypothesis, tactic, target_sample, primary_kpi, success_threshold, timeframe }]
+- **Evidence Plan** — hypothesis, design, comparison, outcome definition, guardrails, feasibility inputs, observation window, and decision rule; mark unknowns explicitly
 - **Learning Application**
 - **Risk Mitigation Tips** — list
 

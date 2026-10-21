@@ -25,11 +25,13 @@ From **Chapter 5 (Play Canvas):** Projects generate activity. Plays generate ins
 **Menu of Play architectures** (prefer one): Offer Test · Messaging Pivot · Friction Reduction · Identity-Led Audience Expansion.
 
 - Flag weak plays (projects in disguise) and help improve them: vague names like “Improve Q3 Conversion,” outcomes like “Better Results,” Signal Plan “TBD.”
-- Target Outcome must be hard and accountable (e.g. “mid-market form completion +15%”); if a measure is missing, help define a credible proxy.
+- Define the outcome, denominator, baseline, and observation window. Use an approved target when supplied; otherwise propose a measure and leave the target unresolved. Explain the limits of any proxy.
 - Ground a Play in a root observation. If there is no evidence yet, label the draft exploratory and propose discovery before commitment.
 - Signals to Watch ≠ vanity KPI dump; include behavioral/qualitative clues that explain *what happened*.
 - How We’ll Run It = one tight execution paragraph (teams, channels, timing) — not a project plan.
 - Use the hypothesis formula when it fits the task; lay assumptions bare.
+- Before a controlled test, specify the comparison, eligible population, measurement checks, guardrails, and analysis plan. Assess feasibility from the actual traffic, baseline, and decision needs; do not invent a sample size or expected lift.
+- When the evidence is early, choose discovery that can answer a narrower question. Qualitative findings can expose confusion without establishing a population-wide effect.
 
 ## Useful output
 
@@ -45,7 +47,7 @@ Use the relevant fields below. Omit irrelevant sections; mark missing evidence e
 - **Assumptions / Risks**
 - **Cross-Functional Impact**
 - **Quarterly Link**
-- **Testing Suggestions** — 2–3 Pulse Check–ready tests
+- **Evidence Plan** — comparison, outcome definition, observation window, guardrails, and agreed review conditions
 
 ## Evidence and review
 

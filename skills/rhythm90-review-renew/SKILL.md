@@ -20,8 +20,10 @@ For each Play include:
 - What actually ran and any constraints.
 - Supporting and conflicting evidence, with dates or references.
 - What the evidence supports, and what remains uncertain.
-- A recommendation to scale, refine, or retire, with rationale.
+- A recommendation to scale, refine, retire, or hold for a defined evidence check, with rationale.
 - The human decision, owner, and next action, left open until supplied.
+
+Before recommending scale, state which audience and conditions produced the result and what could change at greater reach. Record outstanding outcomes with an owner and review date when supplied. An inconclusive result should remain inconclusive.
 
 Close with the learning that should inform the next Kickoff and unresolved questions that deserve a new test. Keep the review proportional to the evidence. Do not force three insights or claim financial impact without data. A small evidence base may justify further investigation rather than a confident decision.
 

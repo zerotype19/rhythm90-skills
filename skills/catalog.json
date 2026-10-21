@@ -118,5 +118,11 @@
     "title": "Review & Renew",
     "description": "Synthesize a quarter’s Plays and source evidence into a Review & Renew working document and next-cycle decisions. Use for end-of-cycle learning reviews, not a generic performance presentation.",
     "core": true
+  },
+  {
+    "name": "rhythm90-outcome-architect",
+    "title": "Outcome Architect",
+    "description": "Evaluate cross-channel marketing evidence against an approved business brief, then coach the next decision. Use when connecting campaign, creative, CRM, sales, or customer outcomes to business objectives; not for a channel recap alone.",
+    "core": true
   }
 ]

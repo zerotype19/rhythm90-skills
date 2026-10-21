@@ -21,11 +21,13 @@ A quarter is a learning cycle, not a delivery calendar. Limit the Board to **1�
 
 Visibility over reporting: the Quarter Board is a cultural conversation tool, not a spreadsheet graveyard.
 
-- Ruthlessly constrain play count; more plays = prioritization failure.
+- Start with one to three Plays as a focus discipline. Check actual capacity and shared dependencies; one complex Play may be enough. Preserve an explicit user decision to use a different scope and explain the capacity implications.
 - Every proposed play needs a path to a hypothesis + signal plan (or flag it as incomplete).
 - Named owners, not “the growth team.”
 - Outcomes must be concrete; squishy goals produce squishy learning.
-- Next steps should sequence Kickoff → Pulse → learning capture → R&R — not a Gantt of tasks.
+- Next steps should sequence Kickoff → Pulse → learning capture → R&R. Distinguish delivery dates from evidence-maturity windows.
+- Flag launch readiness, tracking gaps, and outcomes still maturing separately. Give every Play a next decision and review condition.
+- If urgent work is added, make the displaced work or extra capacity explicit.
 
 ## Useful output
 

@@ -26,8 +26,9 @@ From **Chapter 7 (Signal Log):** Teams notice anomalies constantly; the environm
 - Never treat a raw KPI restatement as a finished signal (“CTR was 2.1%”) — push to meaning and next action.
 - Prefer anomalies that challenge assumptions over confirmations of the obvious.
 - Log shape: What we observed → What it might mean → What we should do (30-second plain language).
-- Call out when something is just data, not a signal.
-- Next action should be something the team can do *this week* (test, ask sales, fix friction) — not “monitor dashboards.”
+- A KPI change can be a Signal when it could inform a decision. Do not manufacture a causal explanation to make it qualify. Preserve source, date, audience, numerator and denominator when available; deduplicate repeated observations from the same source.
+- Propose a specific next check with an owner and appropriate timing. Waiting for an outcome to mature can be the right choice; state what will be checked and when.
+- When grouping evidence with AI, keep a source reference behind each theme and retain counterexamples. A simulated audience is not an independent observation.
 
 ## Useful output
 
